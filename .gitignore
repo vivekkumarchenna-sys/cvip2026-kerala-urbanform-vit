@@ -1,0 +1,49 @@
+# Data & model artifacts (large, regenerable)
+data/raw/
+data/processed/
+data/kerala/
+results/checkpoints/
+results/logs/
+*.tif
+*.tiff
+*.jp2
+*.npy
+*.npz
+*.pth
+*.ckpt
+*.safetensors
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+
+# LaTeX build
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.synctex.gz
+paper/*.fdb_latexmk
+paper/*.fls
+
+# Downloaded copyrighted reference PDFs (kept locally, not versioned)
+references/pdfs/
+
+# Kept locally, excluded from the public repo (minimal reproducible-code repo:
+# only code/, README, .gitignore and DATA_ACCESS.md are published)
+paper/
+code/paper/
+docs/
+references/
+results/
+PLAN.md
+/Automatic Urban Form Classification via Satellite Imagery and Vision Transformers.docx
+
+# OS
+Thumbs.db
+.DS_Store
