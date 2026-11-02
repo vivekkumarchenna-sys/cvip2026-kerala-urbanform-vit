@@ -1,0 +1,35 @@
+{
+  "kochi": {
+    "built_2018_km2": 106.39,
+    "built_2024_km2": 95.03,
+    "new_km2": 2.05,
+    "lost_km2": 13.41,
+    "new_pct_of_2018": 1.9,
+    "net_km2": -11.37,
+    "ndbi_2018_km2": 77.04,
+    "ndbi_2024_km2": 74.54,
+    "ndbi_change_pct": -3.2
+  },
+  "trivandrum": {
+    "built_2018_km2": 65.54,
+    "built_2024_km2": 62.16,
+    "new_km2": 3.89,
+    "lost_km2": 7.27,
+    "new_pct_of_2018": 5.9,
+    "net_km2": -3.38,
+    "ndbi_2018_km2": 57.22,
+    "ndbi_2024_km2": 52.54,
+    "ndbi_change_pct": -8.2
+  },
+  "kozhikode": {
+    "built_2018_km2": 10.44,
+    "built_2024_km2": 11.16,
+    "new_km2": 1.13,
+    "lost_km2": 0.41,
+    "new_pct_of_2018": 10.8,
+    "net_km2": 0.72,
+    "ndbi_2018_km2": 29.58,
+    "ndbi_2024_km2": 25.44,
+    "ndbi_change_pct": -14.0
+  }
+}

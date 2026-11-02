@@ -1,0 +1,38 @@
+{
+  "kochi": {
+    "class_pct": {
+      "Built-up": 31.65,
+      "Tree": 18.98,
+      "Cropland/Grass": 9.95,
+      "Water": 39.43
+    },
+    "built_up_pct": 31.65,
+    "green_pct": 28.93,
+    "water_pct": 39.43,
+    "green_to_builtup": 0.91
+  },
+  "trivandrum": {
+    "class_pct": {
+      "Built-up": 36.89,
+      "Tree": 48.39,
+      "Cropland/Grass": 2.56,
+      "Water": 12.15
+    },
+    "built_up_pct": 36.89,
+    "green_pct": 50.95,
+    "water_pct": 12.15,
+    "green_to_builtup": 1.38
+  },
+  "kozhikode": {
+    "class_pct": {
+      "Built-up": 6.7,
+      "Tree": 77.96,
+      "Cropland/Grass": 0.78,
+      "Water": 14.57
+    },
+    "built_up_pct": 6.7,
+    "green_pct": 78.74,
+    "water_pct": 14.57,
+    "green_to_builtup": 11.75
+  }
+}

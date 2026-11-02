@@ -1,0 +1,146 @@
+{
+  "kochi": {
+    "pixel_accuracy": 0.7417,
+    "kappa": 0.6248,
+    "per_class_f1": {
+      "Built-up": 0.706,
+      "Tree": 0.605,
+      "Cropland/Grass": 0.372,
+      "Water": 0.907
+    },
+    "pred_pct": {
+      "Built-up": 25.78,
+      "Tree": 25.92,
+      "Cropland/Grass": 5.22,
+      "Water": 43.07
+    },
+    "worldcover_pct": {
+      "Built-up": 26.69,
+      "Tree": 26.31,
+      "Cropland/Grass": 7.81,
+      "Water": 39.19
+    },
+    "confusion": [
+      [
+        684632,
+        208726,
+        32172,
+        62904
+      ],
+      [
+        214684,
+        576717,
+        62309,
+        98882
+      ],
+      [
+        36529,
+        114085,
+        87592,
+        40737
+      ],
+      [
+        14427,
+        55864,
+        10439,
+        1384677
+      ]
+    ]
+  },
+  "trivandrum": {
+    "pixel_accuracy": 0.776,
+    "kappa": 0.5987,
+    "per_class_f1": {
+      "Built-up": 0.597,
+      "Tree": 0.826,
+      "Cropland/Grass": 0.11,
+      "Water": 0.968
+    },
+    "pred_pct": {
+      "Built-up": 21.53,
+      "Tree": 65.54,
+      "Cropland/Grass": 0.43,
+      "Water": 12.5
+    },
+    "worldcover_pct": {
+      "Built-up": 28.86,
+      "Tree": 55.64,
+      "Cropland/Grass": 2.27,
+      "Water": 13.23
+    },
+    "confusion": [
+      [
+        358273,
+        329640,
+        2167,
+        2505
+      ],
+      [
+        128716,
+        1179872,
+        2437,
+        900
+      ],
+      [
+        17872,
+        28690,
+        3430,
+        2277
+      ],
+      [
+        3043,
+        8038,
+        2206,
+        289230
+      ]
+    ]
+  },
+  "kozhikode": {
+    "pixel_accuracy": 0.8896,
+    "kappa": 0.7009,
+    "per_class_f1": {
+      "Built-up": 0.355,
+      "Tree": 0.932,
+      "Cropland/Grass": 0.0,
+      "Water": 0.911
+    },
+    "pred_pct": {
+      "Built-up": 2.88,
+      "Tree": 82.3,
+      "Cropland/Grass": 0.0,
+      "Water": 14.81
+    },
+    "worldcover_pct": {
+      "Built-up": 8.1,
+      "Tree": 73.83,
+      "Cropland/Grass": 1.51,
+      "Water": 16.57
+    },
+    "confusion": [
+      [
+        56468,
+        176026,
+        0,
+        2801
+      ],
+      [
+        20888,
+        2088903,
+        0,
+        7200
+      ],
+      [
+        2408,
+        37348,
+        0,
+        3310
+      ],
+      [
+        3180,
+        64187,
+        0,
+        412673
+      ]
+    ]
+  }
+}

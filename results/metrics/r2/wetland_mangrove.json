@@ -1,0 +1,26 @@
+{
+  "kochi": {
+    "wetland_pct": 1.151,
+    "mangrove_pct": 0.755,
+    "patches": 2940,
+    "patches_label_changes_under_B": 42,
+    "patches_majority_wetland_or_mangrove": 26,
+    "water_patches_containing_any_wm": 474
+  },
+  "trivandrum": {
+    "wetland_pct": 0.175,
+    "mangrove_pct": 0.0,
+    "patches": 2159,
+    "patches_label_changes_under_B": 0,
+    "patches_majority_wetland_or_mangrove": 0,
+    "water_patches_containing_any_wm": 0
+  },
+  "kozhikode": {
+    "wetland_pct": 0.095,
+    "mangrove_pct": 0.0,
+    "patches": 2673,
+    "patches_label_changes_under_B": 0,
+    "patches_majority_wetland_or_mangrove": 0,
+    "water_patches_containing_any_wm": 6
+  }
+}

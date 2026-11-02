@@ -29,6 +29,7 @@ SCL = "scl"
 # Dry-season windows (SW monsoon Jun-Sep => use Dec-Apr for low cloud).
 YEAR_WINDOWS = {
     2024: "2023-12-01/2024-04-30",
+    2021: "2020-12-01/2021-04-30",   # matches the ESA WorldCover 2021 labels
     2018: "2017-12-01/2018-04-30",
     2017: "2016-12-01/2017-04-30",
     2016: "2015-12-01/2016-04-30",

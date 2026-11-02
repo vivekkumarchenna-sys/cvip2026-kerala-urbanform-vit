@@ -1,22 +1,27 @@
 # Urban-Form Mapping of Kerala Cities with Vision Transformers
 
-Reproducible code for vision-transformer classification of urban form and land
-cover in three Kerala cities (Kochi, Thiruvananthapuram, Kozhikode) from open,
-fully multispectral Sentinel-2 imagery, with planning indicators and a 2018-2024
-urban-growth analysis.
+Reproducible code for vision-transformer classification of land cover in three
+Kerala cities (Kochi, Thiruvananthapuram, Kozhikode) from open multispectral
+Sentinel-2 imagery, accepted at CVIP 2026. Composites from December 2020 to
+April 2021 are weakly labelled with ESA WorldCover 2021, so every score measures
+agreement with that product, not field accuracy.
 
-See **[DATA_ACCESS.md](DATA_ACCESS.md)** for the (open) data sources.
+See **[DATA-ACCESS.md](DATA-ACCESS.md)** for the (open) data sources.
 
-## Headline results
+## Results
+
+Square-root class weights, with
+in-city scores pooled over the five test folds (7,772 patches).
 
 | Experiment | Result |
 |---|---|
-| EuroSAT-MSI benchmark | ResNet-50 98.7%, ViT-S 97.8%, EfficientNet-B0 98.0% (near-saturated; all within ~1 pt) |
-| **Kerala in-city (ViT-S, 10-band)** | **97.96% acc, 0.971 macro-F1**; best backbone (ResNet 0.851, EfficientNet 0.710 macro-F1) |
-| Multispectral vs RGB (ViT, Kerala) | +1.8 pt acc; Cropland/Grass F1 0.82 -> 0.94 |
-| Cross-city (leave-one-city-out) | ViT-S best mean macro-F1 0.712; Kochi (water-dominated) hardest to transfer to |
-| Planning indicators (2024) | Kochi built 29% / green 27% / water 44%; Thiruvananthapuram 27 / 60 / 13; Kozhikode 4 / 80 / 16 |
-| Built-up growth 2018-2024 | Kozhikode +20%, Thiruvananthapuram +5%, Kochi about stable |
+| EuroSAT benchmark (one run per model) | ResNet-50 98.67%, EfficientNet-B0 98.02%, ViT-S 97.78% accuracy |
+| Kerala in-city, five-fold spatial CV | ViT-S 97.5% accuracy, 89.4% macro-F1; SegFormer-B0 97.4%, 90.4%; ResNet-50 96.8%, 89.5%; EfficientNet-B0 94.6%, 80.3% |
+| Ten bands against RGB | ViT-S 96.3%, 89.1% on RGB; ResNet-50 95.5%, 88.3% on RGB |
+| Leave-one-city-out, mean | SegFormer-B0 96.6%, 91.2%; ViT-S 96.5%, 84.3%; ResNet-50 94.7%, 82.4%; EfficientNet-B0 90.2%, 78.2% |
+| Inverse-frequency weights, Kochi held out | ViT-S accuracy falls from 95.7% to 46.4%, ResNet-50 from 91.4% to 27.9% |
+| City maps against WorldCover | 74.2% of pixels agree in Kochi, 77.6% in Thiruvananthapuram, 89.0% in Kozhikode |
+| Built-up change, 2018 to 2024 | Not resolved by classifying each year independently |
 
 ## Repository layout
 
@@ -26,9 +31,9 @@ code/
   models/     Model definitions (ViT / CNN, multi-band input)
   training/   Training loops (AMP, 8 GB-friendly)
   eval/       Benchmarks, maps, indicators, change detection, attention, figures
+  paper/      tables_r2.py: pooled scores, Wilson intervals, McNemar tests
 data/         Downloaded data (gitignored: raw/ processed/ kerala/)
-references/   BibTeX + reference-verification report
-results/      figures/ + metrics/  (checkpoints/ logs/ gitignored)
+results/      metrics/r2/: every per-fold, per-seed result behind the paper
 ```
 
 ## Environment
@@ -40,17 +45,24 @@ results/      figures/ + metrics/  (checkpoints/ logs/ gitignored)
 ## Reproduce
 
 ```bash
-python code/data/download_kerala_s2.py --year 2024      # Sentinel-2 composites, 3 cities
-python code/data/download_kerala_s2.py --year 2018      # baseline for change detection
+python code/data/download_kerala_s2.py --year 2021      # composites matched to the labels
+python code/data/download_kerala_s2.py --year 2024      # labelling sensitivity, change analysis
+python code/data/download_kerala_s2.py --year 2018      # change analysis
 python code/data/build_worldcover_labels.py             # ESA WorldCover labels
-python code/data/build_patches.py                       # patchify -> labelled dataset
-python code/data/download_eurosat.py                    # EuroSAT-MSI benchmark cache
+python code/data/build_patches_year.py --years 2021 2024
+python code/data/wetland_mangrove_stats.py              # wetland and mangrove cover by city
+python code/data/download_eurosat.py                    # EuroSAT cache
 python code/training/train_eurosat.py                   # E1 benchmark
-python code/training/train_kerala.py                    # E2/E3 in-city + leave-one-city-out
-python code/eval/make_maps_indicators.py                # E4 maps + indicators
-python code/eval/change_detection.py --baseline_year 2018
-python code/eval/figures_journal.py                     # all figures
+bash code/run_review_kerala.sh                          # inverse-weight runs (sensitivity rows)
+bash code/run_review_kerala2.sh                         # square-root weights (primary), maps
+python code/paper/tables_r2.py                          # tables and number macros
+python code/eval/figures_r2.py                          # figures
 ```
+
+Finished runs are skipped, so a stopped script can be run again. `code/run_review_kerala3.sh`
+reruns the steps a GPU fault interrupted. The older scripts (`train_kerala.py`,
+`run_kerala_pipeline.sh`) belong to an earlier version and do not produce the numbers
+above.
 
 ## Data licensing / attribution
 

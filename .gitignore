@@ -35,12 +35,17 @@ paper/*.fls
 references/pdfs/
 
 # Kept locally, excluded from the public repo (minimal reproducible-code repo:
-# only code/, README, .gitignore and DATA_ACCESS.md are published)
-paper/
-code/paper/
+# only code/, README, .gitignore and DATA-ACCESS.md are published)
+/paper/
+code/paper/*
+!code/paper/tables_r2.py
+archive/
 docs/
 references/
-results/
+results/*
+!results/metrics/
+results/metrics/*
+!results/metrics/r2/
 PLAN.md
 /Automatic Urban Form Classification via Satellite Imagery and Vision Transformers.docx
 
